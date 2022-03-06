@@ -1,4 +1,5 @@
 # get transcript/subtitles/captions using youtube_transcript_api
+# https://pypi.org/project/youtube-transcript-api/
 from youtube_transcript_api import YouTubeTranscriptApi
 
 # get_transcript(video_id) function
