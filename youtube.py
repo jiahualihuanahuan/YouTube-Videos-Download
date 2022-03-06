@@ -42,17 +42,11 @@ caption.xml_captions
 # convert to srt format
 print(caption.generate_srt_captions()) # not working
 
-
-
 # .streams will gives you all the stream types this video have, 
 # for example, media format (mp4 etc.), resolution (1080p), 
 # fps (frames per second, 60fps)
 video_streams = YouTube(url).streams # this StreamQuery object cannot follow by .download()
 # print(video_streams)
-
-
-
-
 
 # we can filter the streams based on file_extension, resolution, fps etc.
 video_streams.filter(file_extension='mp4')
@@ -77,6 +71,7 @@ video_streams.get_by_itag(571)
 video_streams.get_highest_resolution()
 # ---------------------------------------------------
 # working with a playlist
+from pytube import Playlist
 p = Playlist('https://www.youtube.com/playlist?list=PLTLIGOWbZcEcP2yD-epNghnXsZlLAz9ml')
 
 path = 'youtube_download/'
