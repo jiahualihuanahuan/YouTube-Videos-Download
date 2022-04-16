@@ -3,7 +3,7 @@
 # pytube documentation - https://pytube.io/en/latest/
 # github site: https://github.com/pytube
 # ---------------------------------------------------
-# Working with a single video
+# Download a single video
 
 # import YouTube module/class
 from pytube import YouTube
@@ -73,7 +73,7 @@ video_streams.get_highest_resolution()
 # ---------------------------------------------------
 # working with a playlist
 from pytube import Playlist
-p = Playlist('https://www.youtube.com/playlist?list=PLTLIGOWbZcEcP2yD-epNghnXsZlLAz9ml')
+p = Playlist('https://www.youtube.com/watch?v=a6Bn1Kih2QY&list=PLPX5xAFU0QcsU1h6j4-4cZf2BIUcm3Te2')
 
 path = 'youtube_download/'
 for url in p.video_urls:
