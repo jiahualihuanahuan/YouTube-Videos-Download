@@ -15,6 +15,10 @@ url = 'https://www.youtube.com/watch?v=WjoplqS1u18'
 YouTube(url).streams.first().download()
 # however, this will download a low resolution version of the video
 
+# get highest resolution
+# add .download() to download the spicified stream
+video_streams.get_highest_resolution()
+
 # create a YouTube object
 video = YouTube(url)
 
@@ -67,9 +71,7 @@ video_streams[-1] # last
 # add .download() to download the spicified stream
 video_streams.get_by_itag(571)
 
-# get highest resolution
-# add .download() to download the spicified stream
-video_streams.get_highest_resolution()
+
 # ---------------------------------------------------
 # working with a playlist
 from pytube import Playlist
