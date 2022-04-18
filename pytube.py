@@ -2,6 +2,9 @@
 
 # pytube documentation - https://pytube.io/en/latest/
 # github site: https://github.com/pytube
+
+Please visit this issue to solve "pytube.exceptions.RegexMatchError: get_throttling_function_name: could not find match for multiple" issue
+https://github.com/pytube/pytube/issues/1289
 # ---------------------------------------------------
 # Download a single video
 
