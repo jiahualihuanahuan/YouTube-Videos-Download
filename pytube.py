@@ -20,7 +20,7 @@ YouTube(url).streams.first().download()
 
 # get highest resolution
 # add .download() to download the spicified stream
-video_streams.get_highest_resolution()
+YouTube(url).streams.get_highest_resolution().download()
 
 # create a YouTube object
 video = YouTube(url)
