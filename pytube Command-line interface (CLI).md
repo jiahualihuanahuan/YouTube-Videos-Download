@@ -1,5 +1,4 @@
 pytube Command-line interface (CLI)
-Pytube also ships with a tiny CLI for interacting with videos and playlists.
 
 To download the highest resolution progressive stream:
 
