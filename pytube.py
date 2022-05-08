@@ -5,6 +5,20 @@
 
 Please visit this issue to solve "pytube.exceptions.RegexMatchError: get_throttling_function_name: could not find match for multiple" issue
 https://github.com/pytube/pytube/issues/1289
+
+This new file comment out line 272 and line 273
+
+line 275: 
+	
+File cur: r'\([a-z]\s*=\s*([a-zA-Z0-9$]{3})(\[\d+\])?\([a-z]\)',
+	
+File new: r'\([a-z]\s*=\s*([a-zA-Z0-9$]{2,3})(\[\d+\])?\([a-z]\)'
+
+line 290: 
+	
+File cur: nfunc=function_match.group(1)),
+
+File new: nfunc=re.escape(function_match.group(1))),
 # ---------------------------------------------------
 # Download a single video
 
