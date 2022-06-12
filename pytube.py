@@ -118,8 +118,15 @@ for url in c.video_urls[:3]:
 # Using the search feature
 from pytube import Search
 
-s = Search('python')
+search_words = "python analytics"
+
+s = Search(search_words)
 # how many videos are there in this search?
 len(s.results)
 # list all videos objects with video ID
 s.results
+# get more search results if there are any
+s.get_next_results()
+path = '/'
+for video in s.results:
+    video.streams.filter(progressive=True, file_extension='mp4').get_highest_resolution().download(path)
