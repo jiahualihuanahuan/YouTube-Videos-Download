@@ -104,14 +104,26 @@ for url in p.video_urls:
 # ---------------------------------------------------
 # working with a channel
 from pytube import Channel
-c = Channel('https://www.youtube.com/channel/UCMUnInmOkrWN4gof9KlhNmQ')
+from datetime import datetime
+
+url = "https://www.youtube.com/c/lexfridman"
+c = Channel(url)
+
+print("Start Downloading Youtube Videos from Lex Fridman")
+
+path = "K:/Youtube_Video/Lex Fridman"
 
 for video in c.videos:
-	video.streams.get_highest_resolution().download()
-
-# get urls from a channel
-for url in c.video_urls[:3]:
-	print(url)
+    try: 
+        start_time = datetime.now()
+        print(f"start time {start_time}")
+        print(f"downloading {video.streams[0].title}")
+        video.streams.get_highest_resolution().download(path)
+        end_time = datetime.now()
+        print(f"end time {end_time}")
+        print(f"{video.streams[0].title} downloaded")
+    except:
+        print("Connection Error")
 
 
 # ---------------------------------------------------
