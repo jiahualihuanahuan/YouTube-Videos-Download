@@ -92,15 +92,21 @@ video_streams.get_by_itag(571)
 # ---------------------------------------------------
 # working with a playlist
 from pytube import Playlist
-p = Playlist('https://www.youtube.com/watch?v=a6Bn1Kih2QY&list=PLPX5xAFU0QcsU1h6j4-4cZf2BIUcm3Te2')
 
-path = 'youtube_download/'
+id = "PLsXPnEADaW-Ta1GW8QfwaBZfk5GNvkoiZ"
+
+url = f"https://www.youtube.com/playlist?list={id}"
+p = Playlist(url)
+
+path = 'your/path/to/store/videos'
 for url in p.video_urls:
     try:
         video = YouTube(url)
     except:
         print("Connection Error")
+    print(f"downloading {video.streams[0].title}")
     video.streams.filter(progressive=True, file_extension='mp4').get_highest_resolution().download(path)
+    print(f"downloaded {video.streams[0].title}")
 # ---------------------------------------------------
 # working with a channel
 from pytube import Channel
