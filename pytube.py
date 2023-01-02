@@ -88,6 +88,32 @@ video_streams[-1] # last
 # add .download() to download the spicified stream
 video_streams.get_by_itag(571)
 
+# ---------------------------------------------------
+# download only 1080p and audio files, 
+# YouTube(url).streams.get_highest_resolution().download() will only get 720p video
+from pytube import YouTube
+from pytube import Playlist
+
+pid = "PLSIJismKOisFCjrj2lspg4_J65-BEK4Di"
+url = f"https://www.youtube.com/playlist?list={pid}"
+
+path = "./向风而行/"
+
+p = Playlist(url)
+
+for url in p.video_urls:
+    try:
+        video = YouTube(url)
+    except:
+        print("Connection Error")
+        
+    try:
+        print(f"downloading {video.streams[0].title}")
+        video.streams.filter(res='1080p', file_extension='mp4').get_by_itag(137).download(path)
+        video.streams.get_by_itag(251).download(path)
+        print(f"downloaded {video.streams[0].title}")
+    except:
+        print("Video Error")
 
 # ---------------------------------------------------
 # working with a playlist
