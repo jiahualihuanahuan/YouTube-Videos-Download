@@ -33,6 +33,7 @@ YouTube(url).streams.first().download()
 # however, this will download a low resolution version of the video
 
 # get highest resolution
+
 # add .download() to download the spicified stream
 YouTube(url).streams.get_highest_resolution().download()
 
@@ -174,3 +175,31 @@ s.get_next_results()
 path = '/'
 for video in s.results:
     video.streams.filter(progressive=True, file_extension='mp4').get_highest_resolution().download(path)
+
+#------------------------------------------------------
+# download audio only using filter(only_audio=True) 
+from pytube import YouTube
+from pytube import Playlist
+import subprocess
+import os
+
+pid = "OLAK5uy_noL7pbl2KRa4Jn854tTmHnNgAJumzzhU8"
+url = f"https://www.youtube.com/playlist?list={pid}"
+
+path = "D:/Media/Music/陶心瑤"
+
+p = Playlist(url)
+
+for url in p.video_urls:
+    try:
+        video = YouTube(url)
+    except:
+        print("Connection Error")
+        
+    try:
+        print(f"downloading {video.streams[0].title}")
+        print(video.streams.filter(only_audio=True)[-1])
+        video.streams.filter(only_audio=True)[-1].download(path)
+        print(f"downloaded {video.streams[0].title}")
+    except:
+        print("Video Error")
