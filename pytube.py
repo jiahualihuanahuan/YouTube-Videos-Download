@@ -203,3 +203,33 @@ for url in p.video_urls:
         print(f"downloaded {video.streams[0].title}")
     except:
         print("Video Error")
+
+	
+#------------------------------------------------------
+# Using the search feature to download audio only
+from pytube import Search
+
+search_words = "于文文"
+
+s = Search(search_words)
+# how many videos are there in this search?
+len(s.results)
+# list all videos objects with video ID
+s.results
+# get more search results if there are any
+s.get_next_results()
+s.get_next_results()
+s.get_next_results()
+s.get_next_results()
+path = "D:/Media/Music/于文文"
+try:
+    for video in s.results:
+        try:
+            print(f"downloading {video.streams[0].title}")
+            print(video.streams.filter(only_audio=True)[-1])
+            video.streams.filter(only_audio=True)[-1].download(path)
+            print(f"downloaded {video.streams[0].title}")
+        except:
+            print("Video Error")
+except:
+    print("Connection Error")
